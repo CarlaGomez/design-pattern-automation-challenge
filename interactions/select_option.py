@@ -3,10 +3,10 @@
 # pylint: disable=missing-class-docstring
 
 
-class FillForm:
-    def __init__(self, selector, value):
+class SelectOption:
+    def __init__(self, selector, option):
         self.selector = selector
-        self.value = value
+        self.option = option
 
     def perform_as(self, actor):
-        actor.page.locator(self.selector).fill(self.value)
+        actor.page.locator(self.selector).select_option(self.option)

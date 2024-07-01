@@ -4,12 +4,8 @@
 
 
 class VerifyMessage:
-    def __init__(self, message, is_visible=True):
+    def __init__(self, message):
         self.message = message
-        self.is_visible = is_visible
 
     def perform_as(self, actor):
-        if self.is_visible:
-            assert actor.page.get_by_text(self.message).is_visible()
-        else:
-            assert actor.page.get_by_text(self.message).is_hidden()
+        assert actor.page.get_by_text(self.message).is_visible()

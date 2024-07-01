@@ -15,7 +15,7 @@ load_dotenv()
 login_name = os.getenv("LOGIN_NAME")
 login_password = os.getenv("LOGIN_PASSWORD")
 
-# add docstring to all functions, modules and classes
+# TODO: add docstring to all functions, modules and classes
 
 
 @pytest.fixture(autouse=True)

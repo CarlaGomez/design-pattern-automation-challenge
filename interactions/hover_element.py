@@ -3,11 +3,9 @@
 # pylint: disable=missing-class-docstring
 
 
-from interactions.click import Click
+class HoverElement:
+    def __init__(self, selector):
+        self.selector = selector
 
-class Logout:
     def perform_as(self, actor):
-        actor.attempts_to(
-            Click("link[name=' Logout']")
-        )
-
+        actor.page.locator(self.selector).hover()

@@ -5,9 +5,8 @@
 
 from interactions.click import Click
 
-class Logout:
+class GoBackToProducts:
     def perform_as(self, actor):
         actor.attempts_to(
-            Click("link[name=' Logout']")
+            Click("button[name=' Back']")
         )
-

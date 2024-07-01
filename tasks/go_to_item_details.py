@@ -5,9 +5,8 @@
 
 from interactions.click import Click
 
-class Logout:
+class GoToItemDetails:
     def perform_as(self, actor):
         actor.attempts_to(
-            Click("link[name=' Logout']")
+            Click("div:nth-child(3) > .thumbnail > a")
         )
-

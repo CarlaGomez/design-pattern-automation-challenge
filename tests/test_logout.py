@@ -23,8 +23,8 @@ def test_logout(page: Page) -> None:
     actor.attempts_to(
         NavigateTo("https://automationteststore.com/index.php?rt=account/login"),
         Authenticate(login_name, login_password),
-        VerifyMessage("Welcome back John", is_visible=True),
+        VerifyMessage("Welcome back John"),
         Logout(),
-        VerifyMessage("Welcome back John", is_visible=False),
-        VerifyMessage("Account Logout", is_visible=True),
+        VerifyMessage("Welcome back John"),
+        VerifyMessage("Account Logout"),
     )

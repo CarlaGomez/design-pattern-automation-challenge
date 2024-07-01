@@ -3,8 +3,11 @@
 # pylint: disable=missing-class-docstring
 
 
+from interactions.check import Check
+
 class CheckPrivacyPolicy:
     def perform_as(self, actor):
-        actor.page.get_by_label(
-            "I have read and agree to the Privacy Policy").check()
-        
+        actor.attempts_to(
+            Check("#privacy-policy")
+        )
+

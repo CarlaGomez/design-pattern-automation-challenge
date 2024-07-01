@@ -3,12 +3,16 @@
 # pylint: disable=missing-class-docstring
 
 
+from interactions.fill_form import FillForm
+
 class FillLoginDetails:
-    def __init__(self, login_name, password):
-        self.login_name = login_name
+    def __init__(self, username, password):
+        self.username = username
         self.password = password
 
     def perform_as(self, actor):
-        actor.page.fill("#AccountFrm_loginname", self.login_name)
-        actor.page.fill("#AccountFrm_password", self.password)
-        actor.page.fill("#AccountFrm_confirm", self.password)
+        actor.attempts_to(
+            FillForm("#username", self.username),
+            FillForm("#password", self.password),
+            FillForm("#AccountFrm_confirm", self.password)
+        )

@@ -3,11 +3,13 @@
 # pylint: disable=missing-class-docstring
 
 
-from interactions.click import Click
+from interactions.select_option import SelectOption
 
-class Logout:
+class SortBy:
+    def __init__(self, sort_criteria):
+        self.sort_criteria = sort_criteria
+
     def perform_as(self, actor):
         actor.attempts_to(
-            Click("link[name=' Logout']")
+            SelectOption("#sort", self.sort_criteria)
         )
-

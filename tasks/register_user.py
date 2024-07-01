@@ -3,7 +3,10 @@
 # pylint: disable=missing-class-docstring
 
 
+from interactions.click import Click
+
 class RegisterUser:
     def perform_as(self, actor):
-        actor.page.locator("#AccountFrm div").filter(
-            has_text="Continue").nth(2).click()
+        actor.attempts_to(
+            Click("button[name=' Register']")
+        )

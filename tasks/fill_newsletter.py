@@ -3,9 +3,10 @@
 # pylint: disable=missing-class-docstring
 
 
-class FillNewsletter:
-    def __init__(self, option):
-        self.option = option
+from interactions.check import Check
 
+class FillNewsletter:
     def perform_as(self, actor):
-        actor.page.get_by_label(self.option).check()
+        actor.attempts_to(
+            Check("#newsletter")
+        )
