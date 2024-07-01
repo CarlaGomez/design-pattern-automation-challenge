@@ -9,9 +9,7 @@ class ValidateShippingInfo:
         self.total = total
 
     def perform_as(self, actor):
-        assert (
-            actor.page.get_by_role("row", name=f"Sub-Total: ${self.subtotal}")
-            .get_by_role("cell", name=self.subtotal)
-            .nth(4)
-        )
-        assert actor.page.get_by_role("cell", name=self.total).nth(1)
+        assert actor.page.locator(
+            f"role=row[name='Sub-Total: {self.subtotal}']"
+        ).is_visible()
+        assert actor.page.locator(f"role=cell[name='{self.total}']").is_visible()

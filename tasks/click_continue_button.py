@@ -6,6 +6,6 @@
 from interactions.click_element import ClickElement
 
 
-class GoBackToProducts:
+class ClickContinueButton:
     def perform_as(self, actor):
-        actor.attempts_to(ClickElement("role=link[name='Women'][exact=True]"))
+        actor.attempts_to(ClickElement("a[role='link'][name='Continue']"))

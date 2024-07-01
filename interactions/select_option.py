@@ -8,5 +8,9 @@ class SelectOption:
         self.selector = selector
         self.option = option
 
+    @staticmethod
+    def from_dropdown(selector):
+        return lambda option: SelectOption(selector, option)
+
     def perform_as(self, actor):
-        actor.page.locator(self.selector).select_option(self.option)
+        actor.page.select_option(self.selector, self.option)

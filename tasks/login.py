@@ -4,16 +4,17 @@
 
 
 from interactions.enter_text import EnterText
+from interactions.click_element import ClickElement
 
 
-class FillLoginDetails:
+class Login:
     def __init__(self, login_name, password):
         self.login_name = login_name
         self.password = password
 
     def perform_as(self, actor):
         actor.attempts_to(
-            EnterText.into("#AccountFrm_loginname")(self.login_name),
-            EnterText.into("#AccountFrm_password")(self.password),
-            EnterText.into("#AccountFrm_confirm")(self.password),
+            EnterText.into("#loginFrm_loginname")(self.login_name),
+            EnterText.into("#loginFrm_password")(self.password),
+            ClickElement("button[name='login']"),
         )

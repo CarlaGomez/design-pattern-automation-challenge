@@ -8,4 +8,4 @@ class HoverElement:
         self.selector = selector
 
     def perform_as(self, actor):
-        actor.page.locator(self.selector).hover()
+        actor.page.hover(self.selector)

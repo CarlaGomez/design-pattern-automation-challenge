@@ -3,16 +3,16 @@
 # pylint: disable=missing-class-docstring
 
 
-from interactions.fill_form import FillForm
-from interactions.click import Click
+from interactions.enter_text import EnterText
+from interactions.click_element import ClickElement
 
 
 class AddItemToCart:
-    def __init__(self, quantity):
-        self.quantity = quantity
+    def __init__(self, product_quantity):
+        self.product_quantity = product_quantity
 
     def perform_as(self, actor):
         actor.attempts_to(
-            FillForm("#product_quantity", self.quantity),
-            Click("link[name=' Add to Cart']"),
+            EnterText.into("#product_quantity")(self.product_quantity),
+            ClickElement("role=link[name='\\uf217 Add to Cart']"),
         )

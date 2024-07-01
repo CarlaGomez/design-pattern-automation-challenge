@@ -2,10 +2,10 @@
 # pylint: disable=missing-function-docstring
 # pylint: disable=missing-class-docstring
 
-from interactions.click import Click
+
+from interactions.click_element import ClickElement
+
 
 class ConfirmPurchase:
     def perform_as(self, actor):
-        actor.attempts_to(
-            Click("button[name=' Confirm Order']")
-        )
+        actor.attempts_to(ClickElement("role=button[name='Confirm Order']"))

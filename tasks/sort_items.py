@@ -5,11 +5,10 @@
 
 from interactions.select_option import SelectOption
 
-class SortBy:
+
+class SortItems:
     def __init__(self, sort_criteria):
         self.sort_criteria = sort_criteria
 
     def perform_as(self, actor):
-        actor.attempts_to(
-            SelectOption("#sort", self.sort_criteria)
-        )
+        actor.attempts_to(SelectOption.from_dropdown("#sort")(self.sort_criteria))

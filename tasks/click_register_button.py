@@ -3,9 +3,9 @@
 # pylint: disable=missing-class-docstring
 
 
-class VerifyMessage:
-    def __init__(self, message):
-        self.message = message
+from interactions.click_element import ClickElement
 
+
+class ClickRegisterButton:
     def perform_as(self, actor):
-        assert actor.page.get_by_text(self.message).is_visible()
+        actor.attempts_to(ClickElement("button[name='register']"))

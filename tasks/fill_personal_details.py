@@ -3,17 +3,22 @@
 # pylint: disable=missing-class-docstring
 
 
-from interactions.fill_form import FillForm
+from interactions.enter_text import EnterText
+
 
 class FillPersonalDetails:
-    def __init__(self, first_name, last_name, email):
+    def __init__(self, first_name, last_name, email, phone, fax):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
+        self.phone = phone
+        self.fax = fax
 
     def perform_as(self, actor):
         actor.attempts_to(
-            FillForm("#first_name", self.first_name),
-            FillForm("#last_name", self.last_name),
-            FillForm("#email", self.email)
+            EnterText.into("#AccountFrm_firstname")(self.first_name),
+            EnterText.into("#AccountFrm_lastname")(self.last_name),
+            EnterText.into("#AccountFrm_email")(self.email),
+            EnterText.into("#AccountFrm_telephone")(self.phone),
+            EnterText.into("#AccountFrm_fax")(self.fax),
         )

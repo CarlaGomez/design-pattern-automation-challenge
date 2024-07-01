@@ -8,4 +8,6 @@ class ValidatePurchase:
         self.order_confirmation_message = order_confirmation_message
 
     def perform_as(self, actor):
-        assert actor.page.get_by_text(self.order_confirmation_message).is_visible()
+        assert actor.page.locator(
+            f"text={self.order_confirmation_message}"
+        ).is_visible()

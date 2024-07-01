@@ -3,9 +3,9 @@
 # pylint: disable=missing-class-docstring
 
 
-from interactions.click import Click
+from interactions.click_element import ClickElement
 
 
-class GoToCart:
+class GoToShoppingCart:
     def perform_as(self, actor):
-        actor.attempts_to(Click("link[name=' Cart']"))
+        actor.attempts_to(ClickElement("role=link[name='Cart']"))

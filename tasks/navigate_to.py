@@ -3,9 +3,6 @@
 # pylint: disable=missing-class-docstring
 
 
-class NavigateTo:
-    def __init__(self, url):
-        self.url = url
-
+class NavigateToLogin:
     def perform_as(self, actor):
-        actor.page.goto(self.url)
+        actor.page.goto(f"https://automationteststore.com/index.php?rt=account/login")

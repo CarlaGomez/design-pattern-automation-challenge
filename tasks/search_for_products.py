@@ -1,5 +1,11 @@
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
+
+from interactions.click_element import ClickElement
 from interactions.hover_element import HoverElement
-from interactions.click import Click
+
 
 class SearchForProducts:
     def __init__(self, product, gender):
@@ -8,6 +14,6 @@ class SearchForProducts:
 
     def perform_as(self, actor):
         actor.attempts_to(
-            HoverElement(f"link[name='{self.product}']"),
-            Click(f"link[name='{self.gender}']")
+            HoverElement(f"role=link[name='{self.product}']"),
+            ClickElement(f"role=link[name='{self.gender}']"),
         )

@@ -3,9 +3,9 @@
 # pylint: disable=missing-class-docstring
 
 
-class Check:
-    def __init__(self, selector):
-        self.selector = selector
+class AssertTextVisible:
+    def __init__(self, text):
+        self.text = text
 
     def perform_as(self, actor):
-        actor.page.locator(self.selector).check()
+        assert actor.page.locator(f"text={self.text}").is_visible()

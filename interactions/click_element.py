@@ -3,10 +3,9 @@
 # pylint: disable=missing-class-docstring
 
 
-class FillForm:
-    def __init__(self, selector, value):
+class ClickElement:
+    def __init__(self, selector):
         self.selector = selector
-        self.value = value
 
     def perform_as(self, actor):
-        actor.page.locator(self.selector).fill(self.value)
+        actor.page.click(self.selector)

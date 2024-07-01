@@ -5,45 +5,47 @@
 
 import os
 from dotenv import load_dotenv
-from playwright.sync_api import sync_playwright
-from tasks.authenticate import Authenticate
-from tasks.navigate_to import NavigateTo
-from tasks.fill_personal_details import FillPersonalDetails
-from tasks.fill_address import FillAddress
-from tasks.fill_login_details import FillLoginDetails
-from tasks.fill_newsletter import FillNewsletter
-from tasks.check_privacy_policy import CheckPrivacyPolicy
-from tasks.register_user import RegisterUser
-from tasks.logout import Logout
-from tasks.click_button import ClickButton
-from tasks.verify_message import VerifyMessage
+from actors.actor import Actor
+from tasks.search_for_products import SearchForProducts
+from tasks.sort_items import SortItems
+from tasks.go_to_item_details import GoToItemDetails
+from tasks.validate_item_name import ValidateItemName
+from tasks.validate_item_price import ValidateItemPrice
+from tasks.validate_category_name import ValidateCategoryName
+from tasks.go_back_to_products import GoBackToProducts
+from tasks.add_item_to_cart import AddItemToCart
+from tasks.validate_items_on_shopping_cart import ValidateItemsOnShoppingCart
+from tasks.go_to_shopping_cart import GoToShoppingCart
+from tasks.fill_shipping import FillShipping
+from tasks.validate_shipping_info import ValidateShippingInfo
+from tasks.checkout import Checkout
+from tasks.validate_checkout_info import ValidateCheckoutInfo
+from tasks.confirm_purchase import ConfirmPurchase
+from tasks.validate_purchase import ValidatePurchase
 
 load_dotenv()
 
 login_name = os.getenv("LOGIN_NAME")
 login_password = os.getenv("LOGIN_PASSWORD")
 
-def test_purchase():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        context = browser.new_context()
-        actor = Authenticate(context)
-        actor.attempts_to(
-            NavigateTo("https://automationteststore.com/index.php?rt=account/login"),
-            FillPersonalDetails("John", "Doe", "john.doe@example.com", "1234567890", "9876543210"),
-            FillAddress("Company Inc", "123 Street", "Apt 101", "US", "California", "90001"),
-            FillLoginDetails(login_name, login_password),
-            FillNewsletter(),
-            CheckPrivacyPolicy(),
-            RegisterUser(),
-            NavigateTo("https://automationteststore.com/index.php?rt=checkout/cart"),
-            ClickButton("Checkout"),
-            FillAddress("Company Inc", "123 Street", "Apt 101", "US", "California", "90001"),
-            ClickButton("Next Step"),
-            ClickButton("Confirm Order"),
-            VerifyMessage("Your Order Has Been Processed!"),
-            Logout()
-        )
-        context.close()
-        browser.close()
 
+def test_purchase(page):
+    actor = Actor("Test User", page)
+    actor.attempts_to(
+        SearchForProducts("Fragrance", "Women"),
+        SortItems("p.price-ASC"),
+        GoToItemDetails(),
+        ValidateItemName("ck One Gift Set"),
+        ValidateItemPrice("$36.00"),
+        AddItemToCart("1"),
+        ValidateItemsOnShoppingCart("Shopping Cart", "ck One Gift Set", "1"),
+        GoToShoppingCart(),
+        FillShipping("223", "3630", "76876"),
+        ValidateShippingInfo("$36.00", "$41.06"),
+        Checkout(),
+        ValidateCheckoutInfo(
+            "Checkout Confirmation", "ck One Gift Set", "$36.00", "$41.06"
+        ),
+        ConfirmPurchase(),
+        ValidatePurchase("Your Order Has Been Processed!"),
+    )
