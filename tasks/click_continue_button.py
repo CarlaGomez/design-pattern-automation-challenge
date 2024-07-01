@@ -8,4 +8,4 @@ from interactions.click_element import ClickElement
 
 class ClickContinueButton:
     def perform_as(self, actor):
-        actor.attempts_to(ClickElement("a[role='link'][name='Continue']"))
+        actor.attempts_to(ClickElement("button[title='Continue']"))

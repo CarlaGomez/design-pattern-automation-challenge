@@ -8,4 +8,4 @@ from interactions.check_element import CheckElement
 
 class CheckPrivacyPolicy:
     def perform_as(self, actor):
-        actor.attempts_to(CheckElement("label[for='privacy_policy']"))
+        actor.attempts_to(CheckElement("#AccountFrm_agree"))

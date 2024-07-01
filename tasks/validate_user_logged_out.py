@@ -12,6 +12,8 @@ class ValidateUserLoggedOut:
 
     def perform_as(self, actor):
         if self.is_visible:
-            actor.attempts_to(AssertTextVisible("Account Logout"))
+            actor.attempts_to(AssertTextVisible("Account Logout", ".maintext"))
         else:
-            assert not actor.page.locator("text='Account Logout'").is_visible()
+            assert not actor.page.locator(
+                "span.maintext:has-text('Account Logout')"
+            ).is_visible()

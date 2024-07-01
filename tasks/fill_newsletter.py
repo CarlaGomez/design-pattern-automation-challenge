@@ -3,12 +3,9 @@
 # pylint: disable=missing-class-docstring
 
 
-from interactions.check_element import CheckElement
+from interactions.click_element import ClickElement
 
 
 class FillNewsletter:
-    def __init__(self, option):
-        self.option = option
-
     def perform_as(self, actor):
-        actor.attempts_to(CheckElement(f"label[text='{self.option}']"))
+        actor.attempts_to(ClickElement("#AccountFrm_newsletter1"))

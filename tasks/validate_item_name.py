@@ -7,8 +7,8 @@ from interactions.assert_text_visible import AssertTextVisible
 
 
 class ValidateItemName:
-    def __init__(self, item):
-        self.item = item
+    def __init__(self, text):
+        self.text = text
 
     def perform_as(self, actor):
-        actor.attempts_to(AssertTextVisible(self.item))
+        actor.attempts_to(AssertTextVisible(self.text, ".bgnone"))

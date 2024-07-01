@@ -16,5 +16,5 @@ class Login:
         actor.attempts_to(
             EnterText.into("#loginFrm_loginname")(self.login_name),
             EnterText.into("#loginFrm_password")(self.login_password),
-            ClickElement("button[name='login']"),
+            ClickElement("button.btn.btn-orange.pull-right:has-text('Login')"),
         )

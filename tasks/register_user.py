@@ -4,8 +4,6 @@
 
 
 from utils.faker_utils import FakeData
-from tasks.navigate_to import NavigateTo
-from tasks.click_register_button import ClickRegisterButton
 from tasks.fill_personal_details import FillPersonalDetails
 from tasks.fill_address import FillAddress
 from tasks.fill_login_details import FillLoginDetails
@@ -24,8 +22,7 @@ class RegisterUser:
 
     def perform_as(self, actor):
         actor.attempts_to(
-            NavigateTo(),
-            ClickRegisterButton(),
+            ClickContinueButton(),
             FillPersonalDetails(
                 self.fake.first_name(),
                 self.fake.last_name(),
@@ -43,7 +40,7 @@ class RegisterUser:
                 self.zip_code,
             ),
             FillLoginDetails(self.fake.user_name(), self.login_password),
-            FillNewsletter("Yes"),
+            FillNewsletter(),
             CheckPrivacyPolicy(),
             ClickContinueButton(),
         )

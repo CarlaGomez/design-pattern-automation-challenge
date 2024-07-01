@@ -10,6 +10,7 @@ from actors.actor import Actor
 from tasks.register_user import RegisterUser
 from tasks.login import Login
 from tasks.logout import Logout
+from tasks.navigate_to import NavigateTo
 from tasks.validate_user_logged_in import ValidateUserLoggedIn
 from tasks.validate_user_logged_out import ValidateUserLoggedOut
 
@@ -24,17 +25,18 @@ address_data = [("223", "3630", "76876")]
 @pytest.mark.parametrize("country_id, region_id, zip_code", address_data)
 def test_register_user(page: Page, country_id, region_id, zip_code) -> None:
     actor = Actor("Test User", page)
-    actor.attempts_to(RegisterUser(country_id, region_id, zip_code, login_password))
+    actor.attempts_to(NavigateTo(), RegisterUser(country_id, region_id, zip_code, login_password))
 
 
 def test_login(page: Page) -> None:
     actor = Actor("Test User", page)
-    actor.attempts_to(Login(login_name, login_password), ValidateUserLoggedIn(True))
+    actor.attempts_to(NavigateTo(), Login(login_name, login_password), ValidateUserLoggedIn(True))
 
 
 def test_logout(page: Page) -> None:
     actor = Actor("Test User", page)
     actor.attempts_to(
+        NavigateTo(),
         Login(login_name, login_password),
         ValidateUserLoggedIn(True),
         Logout(),

@@ -11,8 +11,6 @@ from tasks.sort_items import SortItems
 from tasks.go_to_item_details import GoToItemDetails
 from tasks.validate_item_name import ValidateItemName
 from tasks.validate_item_price import ValidateItemPrice
-from tasks.validate_category_name import ValidateCategoryName
-from tasks.go_back_to_products import GoBackToProducts
 from tasks.add_item_to_cart import AddItemToCart
 from tasks.validate_items_on_shopping_cart import ValidateItemsOnShoppingCart
 from tasks.go_to_shopping_cart import GoToShoppingCart
@@ -22,6 +20,8 @@ from tasks.checkout import Checkout
 from tasks.validate_checkout_info import ValidateCheckoutInfo
 from tasks.confirm_purchase import ConfirmPurchase
 from tasks.validate_purchase import ValidatePurchase
+from tasks.login import Login
+from tasks.navigate_to import NavigateTo
 
 load_dotenv()
 
@@ -32,6 +32,8 @@ login_password = os.getenv("LOGIN_PASSWORD")
 def test_purchase(page):
     actor = Actor("Test User", page)
     actor.attempts_to(
+        NavigateTo(),
+        Login(login_name, login_password),
         SearchForProducts("Fragrance", "Women"),
         SortItems("p.price-ASC"),
         GoToItemDetails(),
