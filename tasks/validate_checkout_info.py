@@ -3,6 +3,9 @@
 # pylint: disable=missing-class-docstring
 
 
+from interactions.assert_text_visible import AssertTextVisible
+
+
 class ValidateCheckoutInfo:
     def __init__(self, page_name, item_name, subtotal, total):
         self.page_name = page_name
@@ -11,11 +14,7 @@ class ValidateCheckoutInfo:
         self.total = total
 
     def perform_as(self, actor):
-        assert actor.page.locator(f"text={self.page_name}").is_visible()
-        assert actor.page.locator(
-            f"role=cell[name='{self.item_name}'][exact=True]"
-        ).is_visible()
-        assert (
-            actor.page.locator(f"role=cell[name='{self.subtotal}']").nth(2).is_visible()
-        )
-        assert actor.page.locator(f"role=cell[name='{self.total}']").first.is_visible()
+        actor.attempts_to(AssertTextVisible(self.page_name, "span.maintext"))
+        actor.attempts_to(AssertTextVisible(self.item_name, "a.checkout_heading"))
+        actor.attempts_to(AssertTextVisible(self.subtotal, "span.bold"))
+        actor.attempts_to(AssertTextVisible(self.total, "span.bold"))

@@ -8,4 +8,4 @@ from interactions.click_element import ClickElement
 
 class ConfirmPurchase:
     def perform_as(self, actor):
-        actor.attempts_to(ClickElement("role=button[name='Confirm Order']"))
+        actor.attempts_to(ClickElement("#checkout_btn"))
