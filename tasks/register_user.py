@@ -3,6 +3,7 @@
 # pylint: disable=missing-class-docstring
 
 
+from utils.faker_utils import FakeData
 from tasks.navigate_to import NavigateTo
 from tasks.click_register_button import ClickRegisterButton
 from tasks.fill_personal_details import FillPersonalDetails
@@ -11,7 +12,6 @@ from tasks.fill_login_details import FillLoginDetails
 from tasks.fill_newsletter import FillNewsletter
 from tasks.check_privacy_policy import CheckPrivacyPolicy
 from tasks.click_continue_button import ClickContinueButton
-from utils.faker_utils import FakeData
 
 
 class RegisterUser:

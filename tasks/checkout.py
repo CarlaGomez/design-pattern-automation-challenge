@@ -2,6 +2,7 @@
 # pylint: disable=missing-function-docstring
 # pylint: disable=missing-class-docstring
 
+
 from interactions.click_element import ClickElement
 
 
