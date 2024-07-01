@@ -14,5 +14,5 @@ class AddItemToCart:
     def perform_as(self, actor):
         actor.attempts_to(
             EnterText.into("#product_quantity")(self.product_quantity),
-            ClickElement("role=link[name='\\uf217 Add to Cart']"),
+            ClickElement("a.cart:has-text('Add to Cart')"),
         )

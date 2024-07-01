@@ -11,4 +11,4 @@ class ValidateItemPrice:
         self.price = price
 
     def perform_as(self, actor):
-        actor.attempts_to(AssertTextVisible(self.price))
+        actor.attempts_to(AssertTextVisible(self.price, ".productprice"))

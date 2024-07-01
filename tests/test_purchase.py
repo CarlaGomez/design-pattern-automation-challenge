@@ -13,8 +13,6 @@ from tasks.validate_item_name import ValidateItemName
 from tasks.validate_item_price import ValidateItemPrice
 from tasks.add_item_to_cart import AddItemToCart
 from tasks.validate_items_on_shopping_cart import ValidateItemsOnShoppingCart
-from tasks.go_to_shopping_cart import GoToShoppingCart
-from tasks.fill_shipping import FillShipping
 from tasks.validate_shipping_info import ValidateShippingInfo
 from tasks.checkout import Checkout
 from tasks.validate_checkout_info import ValidateCheckoutInfo
@@ -41,8 +39,6 @@ def test_purchase(page):
         ValidateItemPrice("$36.00"),
         AddItemToCart("1"),
         ValidateItemsOnShoppingCart("Shopping Cart", "ck One Gift Set", "1"),
-        GoToShoppingCart(),
-        FillShipping("223", "3630", "76876"),
         ValidateShippingInfo("$36.00", "$41.06"),
         Checkout(),
         ValidateCheckoutInfo(
