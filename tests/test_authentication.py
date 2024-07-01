@@ -25,12 +25,16 @@ address_data = [("223", "3630", "76876")]
 @pytest.mark.parametrize("country_id, region_id, zip_code", address_data)
 def test_register_user(page: Page, country_id, region_id, zip_code) -> None:
     actor = Actor("Test User", page)
-    actor.attempts_to(NavigateTo(), RegisterUser(country_id, region_id, zip_code, login_password))
+    actor.attempts_to(
+        NavigateTo(), RegisterUser(country_id, region_id, zip_code, login_password)
+    )
 
 
 def test_login(page: Page) -> None:
     actor = Actor("Test User", page)
-    actor.attempts_to(NavigateTo(), Login(login_name, login_password), ValidateUserLoggedIn(True))
+    actor.attempts_to(
+        NavigateTo(), Login(login_name, login_password), ValidateUserLoggedIn(True)
+    )
 
 
 def test_logout(page: Page) -> None:

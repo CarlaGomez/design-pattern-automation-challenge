@@ -3,14 +3,18 @@
 # pylint: disable=missing-class-docstring
 
 
+from playwright.sync_api import expect
+
+
 class AssertTextVisible:
-    def __init__(self, text, class_name=None):
+    def __init__(self, text, selector=None):
         self.text = text
-        self.class_name = class_name
+        self.selector = selector
 
     def perform_as(self, actor):
-        if self.class_name:
-            assert actor.page.locator(f"{self.class_name}:has-text('{self.text}')").is_visible()
+        if self.selector:
+            locator = actor.page.locator(f"{self.selector}:has-text('{self.text}')")
         else:
-            assert actor.page.locator(f"text={self.text}").is_visible()
-            
+            locator = actor.page.locator(f"text={self.text}")
+
+        expect(locator).to_be_visible()
