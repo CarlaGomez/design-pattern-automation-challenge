@@ -8,13 +8,13 @@ from interactions.click_element import ClickElement
 
 
 class Login:
-    def __init__(self, login_name, password):
+    def __init__(self, login_name, login_password):
         self.login_name = login_name
-        self.password = password
+        self.login_password = login_password
 
     def perform_as(self, actor):
         actor.attempts_to(
             EnterText.into("#loginFrm_loginname")(self.login_name),
-            EnterText.into("#loginFrm_password")(self.password),
+            EnterText.into("#loginFrm_password")(self.login_password),
             ClickElement("button[name='login']"),
         )

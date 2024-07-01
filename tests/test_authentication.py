@@ -29,15 +29,13 @@ def test_register_user(page: Page, country_id, region_id, zip_code) -> None:
 
 def test_login(page: Page) -> None:
     actor = Actor("Test User", page)
-    actor.attempts_to(
-        Login("your_username", login_password), ValidateUserLoggedIn(True)
-    )
+    actor.attempts_to(Login(login_name, login_password), ValidateUserLoggedIn(True))
 
 
 def test_logout(page: Page) -> None:
     actor = Actor("Test User", page)
     actor.attempts_to(
-        Login("your_username", login_password),
+        Login(login_name, login_password),
         ValidateUserLoggedIn(True),
         Logout(),
         ValidateUserLoggedIn(False),
