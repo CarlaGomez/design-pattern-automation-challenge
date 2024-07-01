@@ -29,6 +29,7 @@ The UI automation test is a suite with the following test cases:
 * Python-dotenv
 * Pytest-reporter-html1
 * Black
+* autopep8
 
 ## How to run the tests locally
 

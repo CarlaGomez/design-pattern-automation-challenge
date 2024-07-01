@@ -1,6 +1,6 @@
-"""
-This module contains the test case for registering a user.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
 
 import os
 import pytest
@@ -26,20 +26,21 @@ address_data = [
     ("223", "3630", "76876"),
 ]
 
+
 @pytest.mark.parametrize("country_id, region_id, zip_code", address_data)
 def test_register_user(page: Page, country_id, region_id, zip_code) -> None:
     actor = Actor("User", page)
     fake = Faker()
-    
+
     actor.attempts_to(
-        NavigateTo(f"{os.getenv('BASE_URL')}/index.php?rt=account/login"),
+        NavigateTo("https://automationteststore.com/index.php?rt=account/login"),
         ClickButton(" Continue"),
         FillPersonalDetails(
             fake.first_name(),
             fake.last_name(),
             fake.email(),
             fake.phone_number(),
-            fake.phone_number()
+            fake.phone_number(),
         ),
         FillAddress(
             fake.company(),
@@ -48,12 +49,12 @@ def test_register_user(page: Page, country_id, region_id, zip_code) -> None:
             country_id,
             fake.city(),
             region_id,
-            zip_code
+            zip_code,
         ),
         FillLoginDetails(fake.user_name(), login_password),
         FillNewsletter("Yes"),
         CheckPrivacyPolicy(),
         RegisterUser(),
         VerifyMessage("Your Account Has Been Created!"),
-        ClickButton(" Continue")
+        ClickButton(" Continue"),
     )

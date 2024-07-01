@@ -1,6 +1,7 @@
-"""
-This module defines the FillNewsletter task for filling the newsletter section in the register form.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class FillNewsletter:
     def __init__(self, option):

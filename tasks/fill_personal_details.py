@@ -1,6 +1,7 @@
-"""
-This module defines the FillPersonalDetails task for filling the personal details in the register form.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class FillPersonalDetails:
     def __init__(self, first_name, last_name, email, phone, fax):

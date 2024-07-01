@@ -5,3 +5,4 @@ Faker
 pytest-reporter-html1
 python-dotenv
 pylint
+autopep8

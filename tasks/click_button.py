@@ -1,6 +1,7 @@
-"""
-This module defines the ClickButton task for clicking a specific button.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class ClickButton:
     def __init__(self, button_name):

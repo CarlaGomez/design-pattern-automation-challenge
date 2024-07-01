@@ -1,6 +1,7 @@
-"""
-This module defines the FillLogingDetails task for filling the loging details in the register form.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class FillLoginDetails:
     def __init__(self, login_name, password):

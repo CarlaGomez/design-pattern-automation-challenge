@@ -1,6 +1,7 @@
-"""
-This module defines the Authenticate task for logging in a user.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class Authenticate:
     def __init__(self, login_name, password):

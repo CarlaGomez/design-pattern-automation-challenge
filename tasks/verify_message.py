@@ -1,6 +1,7 @@
-"""
-This module defines the VerifyMessage task for checking the visibility of a message.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class VerifyMessage:
     def __init__(self, message, is_visible=True):

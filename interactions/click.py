@@ -1,6 +1,7 @@
-"""
-This module contains the Click interaction used in the Screenplay pattern for task execution.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class Click:
     def __init__(self, selector):

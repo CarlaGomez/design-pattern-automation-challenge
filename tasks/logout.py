@@ -1,6 +1,7 @@
-"""
-This module defines the Logout task for logging out a user.
-"""
+# pylint: disable=missing-module-docstring
+# pylint: disable=missing-function-docstring
+# pylint: disable=missing-class-docstring
+
 
 class Logout:
     def perform_as(self, actor):
