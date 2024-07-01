@@ -15,7 +15,6 @@ from tasks.fill_newsletter import FillNewsletter
 from tasks.check_privacy_policy import CheckPrivacyPolicy
 from tasks.register_user import RegisterUser
 from tasks.logout import Logout
-from tasks.navigate_to import NavigateTo
 from tasks.click_button import ClickButton
 from tasks.verify_message import VerifyMessage
 
