@@ -1,4 +1,4 @@
-# Automation Challenge using Python, Pytest and Playwright and the Screenplay design pattern
+# Automation Challenge using Python, Pytest, Playwright and the Screenplay design pattern
 
 ## Structure
    
@@ -9,14 +9,7 @@ The UI automation test is a suite with the following test cases:
    * User registration 
    * Login
    * Logout
-   * Search item
-   * Sort by lowest to highest
-   * View item details
-   * Add item to cart
-   * View shopping cart
-   * Fill shipping information 
-   * Checkout
-   * Confirm Purchase
+   * Complete a purchase
    
 
 ## Technologies and dependencies
@@ -74,4 +67,4 @@ When creating a commit please use an accurate description of the purpose, e.g. `
 
 Remember to run the linter and the formatter before pushing any changes, this can be done by running on the terminal `pylint` and `black` and specifying the path and name of your file.
 
-Everytime a push is done, the workflow is going to be triggered building and running all the tests.
+Every time a push is done, the workflow is going to be triggered building and running all the tests.
