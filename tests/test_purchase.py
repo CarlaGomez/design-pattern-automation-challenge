@@ -19,7 +19,7 @@ from tasks.validate_checkout_info import ValidateCheckoutInfo
 from tasks.confirm_purchase import ConfirmPurchase
 from tasks.validate_purchase import ValidatePurchase
 from tasks.login import Login
-from tasks.navigate_to import NavigateTo
+from tasks.navigate_to_login import NavigateToLogin
 
 load_dotenv()
 
@@ -30,7 +30,7 @@ login_password = os.getenv("LOGIN_PASSWORD")
 def test_purchase(page):
     actor = Actor("Test User", page)
     actor.attempts_to(
-        NavigateTo(),
+        NavigateToLogin(),
         Login(login_name, login_password),
         SearchForProducts("Fragrance", "Women"),
         SortItems("p.price-ASC"),
