@@ -28,13 +28,23 @@ The UI automation test is a suite with the following test cases:
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repo and create the .env file using the .env.example as example (the users in the env.example are already created, you can use them)
 
 2. Install all dependencies using
  ```
  pip install
    ```
-All dependencies are listed on the requirements.txt file.
+All dependencies are listed on the requirements.txt file, so the command should be the following
+
+ ```
+ pip install -r requirements.txt
+   ```
+
+Install playwright with all the browsers with 
+
+ ```
+ Playwright install
+   ```
 
 3. Run the tests using pytest. Type on the terminal:
 
